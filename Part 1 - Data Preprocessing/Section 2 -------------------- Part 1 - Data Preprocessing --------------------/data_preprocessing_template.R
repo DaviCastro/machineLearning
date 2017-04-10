@@ -17,3 +17,11 @@ dataSet$Salary = ifelse(is.na(dataSet$Salary),
                      dataSet$Salary
 )
 
+#Encoding categorical data
+# c e vetor em R, o segundo parametro 'levels' vao ser os nomes das categorias na coluna
+
+dataSet$Country = factor(dataSet$Country,
+                         levels = c('France','Spain','Germany'),labels = c(1,2,3))
+
+dataSet$Purchased = factor(dataSet$Purchased,
+                         levels = c('No','Yes'),labels = c(0,1))

@@ -8,6 +8,7 @@ Created on Sun Apr  9 17:34:47 2017
 #Importing the libraries
 
 import numpy as np
+np.set_printoptions(threshold=np.nan)
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -25,3 +26,8 @@ from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values='NaN',strategy='mean',axis=0)
 imputer = imputer.fit(X[:,1:3])
 X[:,1:3] = imputer.transform(X[:,1:3])
+
+#Tratando variveis de categoria coisa assim
+from sklearn.preprocessing import LabelEncoder
+labelEncoder_X = LabelEncoder()
+X[:,0] = labelEncoder_X.fit_transform(X[:,0])
